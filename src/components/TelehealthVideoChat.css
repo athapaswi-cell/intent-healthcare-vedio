@@ -1,0 +1,273 @@
+.telehealth-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1a1a1a;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telehealth-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+}
+
+.telehealth-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 10;
+}
+
+.telehealth-header-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.telehealth-header-info p {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #666;
+}
+
+.status-indicator.connecting {
+  background-color: #ffa500;
+  animation: pulse 1.5s infinite;
+}
+
+.status-indicator.connected {
+  background-color: #4caf50;
+}
+
+.status-indicator.disconnected {
+  background-color: #f44336;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.status-text {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.telehealth-video-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.remote-video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+}
+
+.local-video-wrapper {
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+.local-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #333;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.video-placeholder.small {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.placeholder-avatar {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.video-placeholder.small .placeholder-avatar {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.video-placeholder p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.video-placeholder.small p {
+  font-size: 0.9rem;
+}
+
+.connecting-text {
+  font-size: 0.85rem !important;
+  opacity: 0.8;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.telehealth-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.control-btn.active {
+  background-color: #4caf50;
+}
+
+.control-btn.muted {
+  background-color: #f44336;
+}
+
+.control-btn.end-call {
+  background-color: #f44336;
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+}
+
+.control-btn.end-call:hover {
+  background-color: #d32f2f;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .local-video-wrapper {
+    width: 150px;
+    height: 112px;
+    bottom: 80px;
+    right: 10px;
+  }
+
+  .telehealth-controls {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .control-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .control-btn.end-call {
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+}
+
